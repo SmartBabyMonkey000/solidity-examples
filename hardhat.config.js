@@ -114,6 +114,12 @@ module.exports = {
       accounts: [privateKey],
       chainId: 6278,
       gasPrice: 2000000000,
+    },
+    pulsetest: {
+      url: 'wss://pulsechain-testnet-rpc.publicnode.com',
+      accounts: [privateKey],
+      chainId: 943,
+      gasPrice: 2000000000,
     }
   },
   paths: {
@@ -190,6 +196,14 @@ module.exports = {
         urls: {
           apiURL: "https://explore.steamexchange.io/api",
           browserURL: "https://explore.steamexchange.io/"
+        }
+      },
+      {
+        network: "pulsetest",
+        chainId: 943,
+        urls: {
+          apiURL: "https://scan.v4.testnet.pulsechain.com/api",
+          browserURL: "https://scan.v4.testnet.pulsechain.com"
         }
       },
     ]
