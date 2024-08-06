@@ -14,3 +14,5 @@ contract BToken is ERC20, Ownable {
         _mint(_to, _amount);
     }
 }
+
+// deployed contract address = 0x1d89194AD3698643e2f8093731D2c5691eAC726F

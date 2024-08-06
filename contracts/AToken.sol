@@ -10,6 +10,8 @@ contract AToken is ERC20, Ownable {
     }
 
     function mint(address to, uint256 amount) external onlyOwner {
-        _mint(to, amount)
+        _mint(to, amount);
     }
 }
+
+//deployed contract address = 0x560315E8B2D4C31ac540B2dfa0DAcB043cD9b1D0

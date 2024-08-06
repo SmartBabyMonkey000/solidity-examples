@@ -116,7 +116,7 @@ module.exports = {
       gasPrice: 2000000000,
     },
     pulsetest: {
-      url: 'wss://pulsechain-testnet-rpc.publicnode.com',
+      url: 'https://pulsechain-testnet-rpc.publicnode.com',
       accounts: [privateKey],
       chainId: 943,
       gasPrice: 2000000000,
@@ -140,6 +140,7 @@ module.exports = {
       base: "21QBD7X75X222SSSTADIT6W9HWY92JCQ8M",
       basesepolia: "21QBD7X75X222SSSTADIT6W9HWY92JCQ8M",
       rails: "0000000000000000000000000000000000",
+      pulsetest: "0000000000000000000000000000000000",
     },
     customChains: [
       {
