@@ -201,13 +201,14 @@ contract PulseLiquidityManager is Ownable {
     address public factory;
     address public router;
 
-    constructor(address _factory, address _routre) {
+    constructor(address _factory, address _router) {
         factory = _factory;
         router = _router;
     }
 
-    function createPair(address tokenA, address tokenB) external onlyOwner return (address pair) {
-        pair = IPulseXFactory(factory).createPair(tokenA, tokenB);
+    function createPair(address tokenA, address tokenB) external onlyOwner returns (address) {
+        address pair = IPulseXFactory(factory).createPair(tokenA, tokenB);
+        return pair;
     }
 
     function addLiquidity(
@@ -236,5 +237,27 @@ contract PulseLiquidityManager is Ownable {
             to,
             deadline
         );
+
     }
+
+    function addLiquidityETH(
+            address token,
+            uint amountTokenDesired,
+            uint amountTokenMin,
+            uint amountETHMin,
+            address to,
+            uint deadline
+        ) external payable onlyOwner {
+            IERC20(token).transferFrom(msg.sender, address(this), amountTokenDesired);
+            IERC20(token).approve(router, amountTokenDesired);
+
+            IPulseXRouter02(router).addLiquidityETH(
+                token,
+                amountTokenDesired,
+                amountTokenMin,
+                amountETHMin,
+                to,
+                deadline
+            );
+        }
 }
